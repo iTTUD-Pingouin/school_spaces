@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Bienvenue <%= @user.email %></h1>
+
+  <h3> Voici toutes vos réservations </h3>
+
+  <ul>
+    <% @user.reservations.each do |reservation| %>
+      <li>
+        Réservation à <strong><%= reservation.space.city %></strong> |
+        Réservation : 000<%= reservation.id %>
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>
+
+
+
