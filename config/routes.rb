@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :spaces
-  get 'reservations/:id', to: 'reservations#show'
+  get 'reservations/:id', to: 'reservations#show', as: :reservation_id
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
