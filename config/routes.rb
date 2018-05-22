@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users do
-    member do
-      get 'reservations', to: "users#reservations"
-    end
+  devise_scope :user do
+    get 'reservations', to: "users#reservations"
   end
 
   resources :spaces
