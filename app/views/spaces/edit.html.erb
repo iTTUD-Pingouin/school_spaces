@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Update your space</h1>
+
+  <%= simple_form_for(@space) do |f| %>
+      <%= f.input :city %>
+      <%= f.submit class: "btn btn-success"%>
+
+
+  <% end %>
+
+
+  <%= link_to 'Back', space_path, class: "btn btn-default"%>
+</div>
