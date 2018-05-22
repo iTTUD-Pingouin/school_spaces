@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
-#a
+
 gem 'bootsnap', require: false
+gem 'faker'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
