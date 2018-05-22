@@ -1,18 +1,19 @@
 
 
 
-  <div class="container">
-    <h1>All spaces here</h1>
-    <h3>list des spaces</h3>
-    <div class="row">
-      <% @spaces.each do |space| %>
-        <div class="col-xs-12 col-sm-4">
-          <h2>Espace à <%= space.city %> </h2>
-          <p> qui appartient à <%= space.user.email %></p>
-        </div>
-      <% end %>
-    </div>
+<div class="container">
+  <h1>All spaces here</h1>
+  <h3>list des spaces</h3>
+  <div class="row">
+    <% @spaces.each do |space| %>
+      <div class="col-xs-12 col-sm-4">
+        <h2>Espace à <%= space.city %> </h2>
+        <p> qui appartient à <%= space.user.email %></p>
+      </div>
+    <% end %>
   </div>
+  <%= link_to 'Create a new space', new_space_path, class: "btn btn-success" %>
+</div>
 
 
 
