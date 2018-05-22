@@ -7,7 +7,13 @@
       <%= link_to space_path(space) do %>
         <div class="col-xs-12 col-sm-4">
           <h2>Espace à <%= space.city.capitalize %> </h2>
-          <p> qui appartient à <%= space.user.first_name.capitalize %></p>
+          <p> qui appartient à
+            <% if space.user.first_name %>
+              <%= space.user.first_name.capitalize %>
+            <% else %>
+              <%= space.user.email %>
+            <% end %>
+          </p>
         </div>
       <% end %>
     <% end %>
