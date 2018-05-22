@@ -27,7 +27,7 @@ puts 'Fake users and corresponding spaces : done!'
 puts 'Creating 100 fake reservations'
   mock_user_id = 100
   mock_space_id = 1
-  100.times do
+  30.times do
     reservation = Reservation.new(
       user_id: mock_user_id,
       space_id: mock_space_id
