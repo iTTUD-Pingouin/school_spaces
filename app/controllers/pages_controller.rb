@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  #yes here are MFs
-  def home
+  skip_before_action :authenticate_user!, only: :home
 
+  def home
   end
 end
