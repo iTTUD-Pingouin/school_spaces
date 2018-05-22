@@ -1,8 +1,12 @@
 <div class="container">
-  <h1>L'espace de <%= @space.user.first_name.capitalize %></h1>
+  <h1>L'espace de
+    <% if @space.user.first_name %>
+      <%= @space.user.first_name.capitalize %>
+    <% else %>
+      <%= @space.user.email %>
+    <% end %>
+  </h1>
   <p><%= "This space is located in #{@space.city.capitalize}" %></p>
-
-
 
   <%= link_to 'Back to index', spaces_path %>
   <%= link_to 'Edit your space', edit_space_path %>
