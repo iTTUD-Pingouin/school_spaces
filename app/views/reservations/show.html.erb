@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Here you can see the reservation's details</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <p><%= "This reservation is located in #{@reservation.space.city}" %></p>
+        <p><%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
+        <p><%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
+        </p>
+      </div>
+  </div>
+</div>
