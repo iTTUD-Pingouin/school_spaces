@@ -1,6 +1,9 @@
 class SpacesController < ApplicationController
+
+
   def index
     @spaces = Space.all
+    @spaces = @spaces.where(city: params[:city].downcase) if params[:city]
   end
 
   def show
