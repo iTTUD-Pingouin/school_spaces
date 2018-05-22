@@ -1,7 +1,7 @@
 <div class="container">
-  <h1><%= "This page shows you the infos of the space you will book" %></h1>
-  <p><%= "This space is located in #{@space.city}" %></p>
-  <p><%= "It is rented by #{@space.user.email}" %></p>
+  <h1>L'espace de <%= @space.user.first_name.capitalize %></h1>
+  <p><%= "This space is located in #{@space.city.capitalize}" %></p>
+
 
 
   <%= link_to 'Back to index', spaces_path %>
