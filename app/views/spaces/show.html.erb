@@ -9,10 +9,11 @@
   </h1>
   <p><%= "This space is located in #{@space.city.capitalize}" %></p>
 
+  <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
 
-  <%= link_to 'Back to index', spaces_path %>
-  <%= link_to 'Edit your space', edit_space_path %>
-  <%= link_to 'Delete your space', space_path, method: :delete, data: {confirm: "Vous êtes sûr de vouloir supprimer cet espace ?"} %>
+  <%= link_to 'Edit your space', edit_space_path, class: "btn btn-success" %>
+  <%= link_to 'Delete your space', space_path, method: :delete, data: {confirm: "Vous êtes sûr de vouloir supprimer cet espace ?"}, class: "btn btn-danger"  %>
+  <%= link_to 'Back to index', spaces_path, class: "btn btn-default" %>
 
 </div>
 

@@ -1,15 +1,18 @@
-<h1>Pages#home</h1>
-<%= form_tag(spaces_path, method: "get") do %>
-  <%= label_tag(:city, "Dans quelle ville voulez-vous un espace ?") %>
-  <%= text_field_tag(:city) %>
+<div class="container">
+  <h1>Pages#home</h1>
+  <%= form_tag(spaces_path, method: "get") do %>
+    <%= label_tag(:city, "Dans quelle ville voulez-vous un espace ?") %>
+    <%= text_field_tag(:city) %>
 
-  <%= submit_tag("Search") %>
-<% end %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
 
 
 
-<%= link_to "See all spaces", spaces_path %>
+  <%= link_to "See all spaces", spaces_path %>
+</div>
+
 
 
 
