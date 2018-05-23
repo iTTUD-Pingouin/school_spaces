@@ -10,6 +10,8 @@
 
   <%= link_to 'Back to index', spaces_path %>
   <%= link_to 'Edit your space', edit_space_path %>
+  <%= link_to 'Delete your space', space_path, method: :delete, data: {confirm: "Vous êtes sûr de vouloir supprimer cet espace ?"} %>
+
 </div>
 
 
