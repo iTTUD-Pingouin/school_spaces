@@ -1,12 +1,17 @@
 
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to spaces_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <%= form_tag(spaces_path, method: "get") do %>
+    <%= text_field_tag(:city) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
     <% if user_signed_in? %>
 
