@@ -41,6 +41,7 @@ class SpacesController < ApplicationController
   def set_space
     @space = Space.find(params[:id])
     authorize @space
+  end
 
   def space_params
     params.require(:space).permit(:city, :address)
