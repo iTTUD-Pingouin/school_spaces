@@ -8,7 +8,7 @@
 
 require 'faker'
 
-puts '------------Creating 8 fake users and their spaces (their passwords are 123456)------------ '
+puts '------------Creating 5 fake users and their spaces (their passwords are 123456)------------ '
 puts ' '
 virgile = User.new(
   email: "vivi@vivi.com",
@@ -78,13 +78,13 @@ puts "#{marty.first_name} (#{marty.email}) - City: #{perpignan.city.capitalize} 
 
 puts 'Fake users and corresponding spaces : done!'
 puts ' '
-puts '------------Creating 6 fake reservations------------'
+puts '------------Creating 3 fake reservations------------'
 puts ' '
   mock_user_id = 4
   mock_space_id = mock_user_id - 3
   mock_space_id_2 = mock_user_id - 2
   mock_space_id_3 = mock_user_id - 1
-  2.times do
+  1.times do
     reservation = Reservation.new(
       user_id: mock_user_id,
       space_id: mock_space_id
@@ -96,16 +96,17 @@ puts ' '
       )
     reservation_2.save!
     reservation_3 = Reservation.new(
-      user_id: mock_user_id,
+      user_id: 5,
       space_id: mock_space_id_3
       )
     reservation_3.save!
     mock_user_id -= 1
-    user = User.find_by(id: mock_user_id)
-    city = Space.find_by(id: mock_space_id)
-    city_2 = Space.find_by(id: mock_space_id_2)
-    city_3 = Space.find_by(id: mock_space_id_3)
-    puts "#{user.first_name} booked in #{city.city.capitalize}, #{city_2.city.capitalize} and #{city_3.city.capitalize}"
+  end
+  reservations = Reservation.all
+  reservations.each do |reservation|
+    space = Space.find_by(id:reservation.space_id)
+    user = User.find_by(id:reservation.user_id)
+    puts "#{user.first_name} booked in #{space.city.capitalize}"
   end
   puts ' '
 puts '------------------------------Finished! Wubbalubbadubdub Mfs !------------------------------'
