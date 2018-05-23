@@ -1,12 +1,16 @@
 <div class="container">
-  <h1>Pages#home</h1>
+  <% if user_signed_in? == false%>
+    <%= link_to 'login', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <% end %>
+  <h1>School Places</h1>
+
+  <h3>Profitez des locaux non utilisés par les écoles !</h3>
   <%= form_tag(spaces_path, method: "get") do %>
     <%= label_tag(:city, "Dans quelle ville voulez-vous un espace ?") %>
     <%= text_field_tag(:city) %>
 
     <%= submit_tag("Search") %>
   <% end %>
-
 
 
 
