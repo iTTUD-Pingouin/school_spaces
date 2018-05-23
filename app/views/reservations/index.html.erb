@@ -5,7 +5,7 @@
   <ul>
     <% @user.reservations.each do |reservation| %>
       <li>
-        Réservation à <strong><%= link_to reservation.space.city, reservation_path(reservation) %></strong> |
+        Réservation à <strong><%= link_to reservation.space.city.capitalize, reservation_path(reservation) %></strong> |
         Réservation : 000<%= reservation.id %>
       </li>
     <% end %>
