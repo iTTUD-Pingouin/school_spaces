@@ -27,7 +27,6 @@ class SpacesController < ApplicationController
   end
 
   def update
-
     @space.update(space_params)
     redirect_to space_path(@space)
   end
@@ -39,14 +38,12 @@ class SpacesController < ApplicationController
 
   private
 
-  def space_params
-    params.require(:space).permit(:city)
-
-  end
-
   def set_space
     @space = Space.find(params[:id])
     authorize @space
+
+  def space_params
+    params.require(:space).permit(:city, :address)
   end
 
 end

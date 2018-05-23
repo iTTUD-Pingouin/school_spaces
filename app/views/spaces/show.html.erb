@@ -7,7 +7,7 @@
       <%= @space.user.email %>
     <% end %>
   </h1>
-  <p><%= "This space is located in #{@space.city.capitalize}" %></p>
+  <p><%= "This space is located at #{@space.address} in #{@space.city.capitalize}" %></p>
 
   <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
 

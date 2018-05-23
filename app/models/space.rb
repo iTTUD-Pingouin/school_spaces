@@ -4,7 +4,7 @@ class Space < ApplicationRecord
   has_many :users, through: :reservations
 
   validates :city, presence: :true
-
+  validates :address, presence: :true
   before_save :downcase_city
 
   private
