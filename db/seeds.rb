@@ -26,20 +26,21 @@ guillaume_place = Space.new(
   address: "36 rue Mazarine, 75006",
   )
 guillaume_place.save!
-puts "#{guillaume.first_name} (#{guillaume.email}) - City: #{guillaume_place.city.capitalize} - Address: #{guillaume_place.address}"
+guillaume_second_place = Space.new(
+  city: "Paris",
+  user_id: 2,
+  address: "96 avenue de la République, 75011",
+  )
+guillaume_second_place.save!
+puts "#{guillaume.first_name} (#{guillaume.email}) - 1st place - City: #{guillaume_place.city.capitalize} - Address: #{guillaume_place.address}"
+puts "#{guillaume.first_name} (#{guillaume.email}) - 2nd place - City: #{guillaume_second_place.city.capitalize} - Address: #{guillaume_second_place.address}"
 matzi = User.new(
   email: "superslovenian@rock.com",
   password: "123456",
   first_name: "Matzi"
   )
 matzi.save!
-matzi_place = Space.new(
-  city: "Paris",
-  user_id: 3,
-  address: "96 avenue de la République, 75011",
-  )
-matzi_place.save!
-puts "#{matzi.first_name} (#{matzi.email}) - City: #{matzi_place.city.capitalize} - Address: #{matzi_place.address}"
+puts "#{matzi.first_name} (#{matzi.email}) - No place to let"
 jauzion = User.new(
   email: "destroyer@destroy.fr",
   password: "123456",
@@ -67,8 +68,8 @@ marty_place = Space.new(
 marty_place.save!
 puts "#{marty.first_name} (#{marty.email}) - City: #{marty_place.city.capitalize} - Address: #{marty_place.address}"
 puts ' '
-# 2- CREATE 3 FAKE RESERVATIONS SO THAT ONE USER BOOKS TWO SPACES AND ANOTHER BOOKS ONE SPACE
-puts '------------Creating 3 fake reservations------------'
+# 2- CREATE 4 FAKE RESERVATIONS
+puts '------------Creating 4 fake reservations------------'
 puts ' '
 reservation = Reservation.new(
   user_id: 1,
@@ -76,8 +77,8 @@ reservation = Reservation.new(
   )
 reservation.save!
 reservation_2 = Reservation.new(
-  user_id: 2,
-  space_id: 3
+  user_id: 1,
+  space_id: 4
   )
 reservation_2.save!
 reservation_3 = Reservation.new(
@@ -85,6 +86,11 @@ reservation_3 = Reservation.new(
   space_id: 4
   )
 reservation_3.save!
+reservation_4 = Reservation.new(
+  user_id: 3,
+  space_id: 5
+  )
+reservation_4.save!
 reservations = Reservation.all
 reservations.each do |reservation|
   space = Space.find_by(id:reservation.space_id)
