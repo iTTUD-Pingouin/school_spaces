@@ -1,21 +1,24 @@
-<div class="container">
-  <% if user_signed_in? == false%>
-    <%= link_to 'login', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-  <% end %>
-  <h1>School Places</h1>
 
-  <h3>Profitez des locaux non utilisés par les écoles !</h3>
-  <%= form_tag(spaces_path, method: "get") do %>
-    <%= label_tag(:city, "Dans quelle ville voulez-vous un espace ?") %>
-    <%= text_field_tag(:city) %>
+<div class="home-wrapper">
+  <div class="home-container text-center">
+    <div class="main-infos">
 
-    <%= submit_tag("Search") %>
-  <% end %>
+      <div class="main-title">
+        <h1>School Places</h1>
 
+        <h3>Profitez des locaux non utilisés par les écoles !</h3>
+        <%= form_tag(spaces_path, method: "get") do %>
+          <%= label_tag(:city, "Dans quelle ville voulez-vous un espace ?") %>
+          <%= text_field_tag(:city) %>
 
-
-  <%= link_to "See all spaces", spaces_path %>
+          <%= submit_tag("Search") %>
+        <% end %>
+        <%= link_to "See all spaces", spaces_path, class: 'btn btn-primary btn-lg' %>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 

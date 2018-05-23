@@ -1,0 +1,30 @@
+.home-wrapper {
+  background-image: asset-url('couloir.jpg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.home-container {
+  background-color: rgba(260,260,260,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  h1 {
+    font-weight: bolder;
+  }
+}
+
+
+.main-title {
+  h3 {
+    margin-bottom: 20px;
+  }
+  a {
+    margin-top: 20px;
+  }
+}
