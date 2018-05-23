@@ -7,9 +7,13 @@ class Space < ApplicationRecord
   validates :address, presence: :true
   before_save :downcase_city
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   private
 
   def downcase_city
     self.city.downcase!
   end
 end
+
+
