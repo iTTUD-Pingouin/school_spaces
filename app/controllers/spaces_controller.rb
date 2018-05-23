@@ -40,7 +40,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:city)
+    params.require(:space).permit(:city, :address)
   end
 
 end
