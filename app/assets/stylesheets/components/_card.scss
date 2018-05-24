@@ -1,13 +1,15 @@
 .card {
   height: 250px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), asset-url('couloir.jpg');
+  // background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= http://res.cloudinary.com/dguqjaoa0/image/upload/v1527173388/jlcz247yrrgllieaevxx.jpg @space.photo %>');
   background-size: cover !important;
   color: white;
   position: relative;
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+// asset-url('couloir.jpg')
 
 .card-category {
   position: absolute;
