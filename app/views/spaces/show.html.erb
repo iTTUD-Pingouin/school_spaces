@@ -7,6 +7,7 @@
       <%= @space.user.email %>
     <% end %>
   </h1>
+
   <h5>
     <% if policy(@space).edit?%>
       <%= link_to edit_space_path do %>
@@ -19,6 +20,7 @@
       <% end %>
     <% end %>
   </h5>
+
   <p><%= "This space is located at #{@space.address} in #{@space.city.capitalize}" %></p>
 
   <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
