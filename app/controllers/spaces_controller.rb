@@ -3,8 +3,9 @@ class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
 
   def index
-    @spaces = policy_scope(Space)
-    @spaces = @spaces.where(city: params[:city].downcase) if params[:city]
+      @spaces = policy_scope(Space)
+      @spaces = @spaces.where(city: params[:city].downcase) if params[:city]
+      @spaces = Space.all if params[:city].blank?
   end
 
   def show
