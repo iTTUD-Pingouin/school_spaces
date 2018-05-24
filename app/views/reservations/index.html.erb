@@ -1,6 +1,14 @@
-
 <div class="container">
-  <h1>Salles de classe réservées</h1>
+  <h1>
+    <% if @user.first_name == nil %>
+      <%="Bienvenue #{@user.email}"%>
+    <% else %>
+      <%="Bienvenue #{@user.first_name}"%>
+    <% end %>
+  </h1>
+</div>
+<div class="container">
+  <h2>Salles de classe réservées</h2>
   <ul class="list-group">
     <% @user.reservations.each do |reservation| %>
       <li class="list-group-item">
@@ -9,9 +17,8 @@
     <% end %>
   </ul>
 </div>
-
 <div class="container">
-  <h1>Salles de classe louées</h1>
+  <h2>Salles de classe louées</h2>
   <ul class="list-group">
     <% @user.spaces.each do |space|  %>
       <li class="list-group-item">
