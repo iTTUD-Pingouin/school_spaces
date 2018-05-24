@@ -1,51 +1,114 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# 1- CREATE THE FAKE USERS AND THE SPACE THEY LEND
+puts '------------Creating 5 fake users and their spaces (their passwords are 123456)------------ '
+puts ' '
+virgile = User.new(
+  email: "vivi@vivi.com",
+  password: "123456",
+  first_name: "Virgile"
+  )
+virgile.save!
+virgile_place = Space.new(
+  city: "Angers",
+  user_id: 1,
+  address: "33 Place Imbach, 49100",
+  )
+virgile_place.save!
+puts "#{virgile.first_name} (#{virgile.email}) - City: #{virgile_place.city.capitalize} - Address: #{virgile_place.address}"
+guillaume = User.new(
+  email: "guillaume@superman.com",
+  password: "123456",
+  first_name: "Guillaume"
+  )
+guillaume.save!
+guillaume_place = Space.new(
+  city: "Paris",
+  user_id: 2,
+  address: "36 rue Mazarine, 75006",
+  )
+guillaume_place.save!
+guillaume_second_place = Space.new(
+  city: "Paris",
+  user_id: 2,
+  address: "96 avenue de la République, 75011",
+  )
+guillaume_second_place.save!
+puts "#{guillaume.first_name} (#{guillaume.email}) - 1st place - City: #{guillaume_place.city.capitalize} - Address: #{guillaume_place.address}"
+puts "#{guillaume.first_name} (#{guillaume.email}) - 2nd place - City: #{guillaume_second_place.city.capitalize} - Address: #{guillaume_second_place.address}"
+matzi = User.new(
+  email: "superslovenian@rock.com",
+  password: "123456",
+  first_name: "Matzi"
+  )
+matzi.save!
+puts "#{matzi.first_name} (#{matzi.email}) - No place to let"
+jauzion = User.new(
+  email: "destroyer@destroy.fr",
+  password: "123456",
+  first_name: "Yannick"
+  )
+jauzion.save!
+jauzion_place = Space.new(
+  city: "Toulouse",
+  user_id: 4,
+  address: "1 Place du Capitole, 31000",
+  )
+jauzion_place.save!
+puts "#{jauzion.first_name} (#{jauzion.email}) - City: #{jauzion_place.city.capitalize} - Address: #{jauzion_place.address}"
+marty = User.new(
+  email: "tenderlove@tender.com",
+  password: "123456",
+  first_name: "David"
+  )
+marty.save!
+marty_place = Space.new(
+  city: "Perpignan",
+  user_id: 5,
+  address: "Place de la Loge, 66000",
+  )
+marty_place.save!
+puts "#{marty.first_name} (#{marty.email}) - City: #{marty_place.city.capitalize} - Address: #{marty_place.address}"
+puts ' '
+# 2- CREATE 4 FAKE RESERVATIONS
+puts '------------Creating 4 fake reservations------------'
+puts ' '
+reservation = Reservation.new(
+  user_id: 1,
+  space_id: 2
+  )
+reservation.save!
+reservation_2 = Reservation.new(
+  user_id: 1,
+  space_id: 4
+  )
+reservation_2.save!
+reservation_3 = Reservation.new(
+  user_id: 2,
+  space_id: 4
+  )
+reservation_3.save!
+reservation_4 = Reservation.new(
+  user_id: 3,
+  space_id: 5
+  )
+reservation_4.save!
+reservations = Reservation.all
+reservations.each do |reservation|
+  space = Space.find_by(id:reservation.space_id)
+  user = User.find_by(id:reservation.user_id)
+  puts "#{user.first_name} booked in #{space.city.capitalize}"
+end
+puts ' '
+puts '------------------------------Finished! Wubbalubbadubdub Mfs !------------------------------'
+puts ' '
+puts '
 
-require 'faker'
-
-puts 'Creating 20 fake users and their spaces...'
-  20.times do
-    user = User.new(
-      email: Faker::Internet.email,
-      password: "123456",
-      first_name: Faker::Name.first_name
-      )
-    user.save!
-    space = Space.new(
-      city: "#{Faker::Address.city}",
-      user_id: user.id
-      )
-    space.save!
-  end
-puts 'Fake users and corresponding spaces : done!'
-
-puts 'Creating 15 fake reservations'
-  mock_user_id = 20
-  mock_space_id = 1
-  5.times do
-    mock_space_id_2 = mock_space_id + 1
-    mock_space_id_3 = mock_space_id + 2
-    reservation = Reservation.new(
-      user_id: mock_user_id,
-      space_id: mock_space_id
-      )
-    reservation.save!
-    reservation_2 = Reservation.new(
-      user_id: mock_user_id,
-      space_id: mock_space_id_2
-      )
-    reservation_2.save!
-    reservation_3 = Reservation.new(
-      user_id: mock_user_id,
-      space_id: mock_space_id_3
-      )
-    reservation_3.save!
-    mock_user_id -= 1
-    mock_space_id += 1
-  end
-puts 'Finished! Wubbalubbadubdub Mfs !'
+ ███▄ ▄███▓ █████▒██████
+▓██▒▀█▀ ██▓██   ▒██    ▒
+▓██    ▓██▒████ ░ ▓██▄
+▒██    ▒██░▓█▒  ░ ▒   ██▒
+▒██▒   ░██░▒█░  ▒██████▒▒
+░ ▒░   ░  ░▒ ░  ▒ ▒▓▒ ▒ ░
+░  ░      ░░    ░ ░▒  ░ ░
+░      ░   ░ ░  ░  ░  ░
+       ░              ░
+'
