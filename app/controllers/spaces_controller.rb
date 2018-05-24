@@ -4,8 +4,8 @@ class SpacesController < ApplicationController
 
   def index
       @spaces = policy_scope(Space)
-      @spaces = policy_scope(Space).near(params[:city]) if params[:city]
-      @spaces = Space.all if params[:city].blank?
+      @spaces = policy_scope(Space).near(params[:address]) if params[:address]
+      @spaces = Space.all if params[:title].blank?
 
       @spaces_with_latlong =  Space.where.not(latitude: nil, longitude: nil)
       @markers = @spaces_with_latlong.map do |space|
@@ -55,7 +55,7 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:city, :address, :photo)
+    params.require(:space).permit(:title, :address, :photo)
   end
 
 end

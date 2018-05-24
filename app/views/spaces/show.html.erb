@@ -4,7 +4,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8">
-        <div class="photo-container">
+        <div class="photo-container" style="background-image: url('<%= cl_image_path @space.photo%>');">
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -27,12 +28,7 @@
     <div class="text-infos-space">
       <div class="col-xs-12 col-sm-6">
         <div class="title-of-show-page">
-          <h1>L'espace de
-          <% if @space.user.first_name %>
-            <%= @space.user.first_name.capitalize %>
-          <% else %>
-            <%= @space.user.email %>
-          <% end %>
+          <h1><%= @space.title.capitalize %>
           </h1>
         </div>
       </div>
@@ -45,7 +41,7 @@
             </li>
             <li>
               <i class="fas fa-map-marker"></i>
-              <%= @space.city.capitalize %>
+              <%= @space.title.capitalize %>
             </li>
             <li>
               <i class="fas fa-users"></i>
@@ -91,7 +87,7 @@
       <% end %>
     </h5>
     <br>
-    <p><strong>Description : </strong><%= "This space is located at #{@space.address} in #{@space.city.capitalize}" %>. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins.</p>
+    <p><strong>Description : </strong><%= "This space is located at #{@space.address} in #{@space.title.capitalize}" %>. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins.</p>
     <br>
     <p><strong>Adresse : </strong><%= @space.address%></p>
   </div>
