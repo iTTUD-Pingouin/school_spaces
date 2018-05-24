@@ -1,16 +1,29 @@
-
 <div class="container">
-  <h1>Bienvenue <%= @user.email %></h1>
-  <h3> Voici toutes vos réservations </h3>
-  <ul>
+  <h1>
+    <% if @user.first_name == nil %>
+      <%="Bienvenue #{@user.email}"%>
+    <% else %>
+      <%="Bienvenue #{@user.first_name}"%>
+    <% end %>
+  </h1>
+</div>
+<div class="container">
+  <h2>Salles de classe réservées</h2>
+  <ul class="list-group">
     <% @user.reservations.each do |reservation| %>
-      <li>
-        Réservation à <strong><%= link_to reservation.space.city.capitalize, reservation_path(reservation) %></strong> |
-        Réservation : 000<%= reservation.id %>
+      <li class="list-group-item">
+        Réservation à <strong><%= link_to reservation.space.city.capitalize, reservation_path(reservation) %></strong> | Réservation : 000<%= reservation.id %>
       </li>
     <% end %>
   </ul>
-
 </div>
-
-
+<div class="container">
+  <h2>Salles de classe louées</h2>
+  <ul class="list-group">
+    <% @user.spaces.each do |space|  %>
+      <li class="list-group-item">
+        Louée à <strong><%= link_to space.city.capitalize,space_path(space) %></strong> | Espace : 000<%= space.id %>
+      </li>
+    <% end %>
+  </ul>
+</div>
