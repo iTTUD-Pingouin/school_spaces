@@ -1,0 +1,29 @@
+.show-first-container {
+  margin-top: 30px;
+}
+
+.book-container {
+  background-color: white;
+  height: 400px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgba(50,50,50,0.1);
+  h3 {
+    margin: 0px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.photo-container {
+  background-color: $green;
+  background-image: asset-url('couloir.jpg');
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgba(50,50,50,0.1);
+  height: 400px;
+  h1 {
+    margin: 0;
+  }
+
+}
