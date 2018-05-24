@@ -12,6 +12,7 @@ virgile_place = Space.new(
   user_id: 1,
   address: "33 Place Imbach, 49100",
   )
+virgile_place.remote_photo_url = "http://lycee-felix-mayer.com/images/etablissement/lycee-polyvalent-felix-mayer-creutzwald-cour-3.jpg"
 virgile_place.save!
 puts "#{virgile.first_name} (#{virgile.email}) - City: #{virgile_place.city.capitalize} - Address: #{virgile_place.address}"
 guillaume = User.new(
@@ -25,6 +26,7 @@ guillaume_place = Space.new(
   user_id: 2,
   address: "36 rue Mazarine, 75006",
   )
+guillaume_place.remote_photo_url = "http://lycee-felix-mayer.com/images/etablissement/lycee-polyvalent-felix-mayer-creutzwald-cour-3.jpg"
 guillaume_place.save!
 guillaume_second_place = Space.new(
   city: "Paris",
@@ -52,6 +54,7 @@ jauzion_place = Space.new(
   user_id: 4,
   address: "1 Place du Capitole, 31000",
   )
+jauzion_place.remote_photo_url = "http://lycee-felix-mayer.com/images/etablissement/lycee-polyvalent-felix-mayer-creutzwald-cour-3.jpg"
 jauzion_place.save!
 puts "#{jauzion.first_name} (#{jauzion.email}) - City: #{jauzion_place.city.capitalize} - Address: #{jauzion_place.address}"
 marty = User.new(
@@ -65,6 +68,7 @@ marty_place = Space.new(
   user_id: 5,
   address: "Place de la Loge, 66000",
   )
+marty_place.remote_photo_url = "http://lycee-felix-mayer.com/images/etablissement/lycee-polyvalent-felix-mayer-creutzwald-cour-3.jpg"
 marty_place.save!
 marty_place2 = Space.new(
   city: "Angers",
