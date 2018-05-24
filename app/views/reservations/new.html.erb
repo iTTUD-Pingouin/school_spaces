@@ -5,7 +5,7 @@
         <%= simple_form_for [@space, @reservation] do |f| %>
           <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
           <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
-          <%= f.submit %>
+          <%= f.submit "Loue cet espace" , :class => "btn btn-warning btn-lg" %>
         <% end %>
       </div>
   </div>
