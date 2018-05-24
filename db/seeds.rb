@@ -66,6 +66,12 @@ marty_place = Space.new(
   address: "Place de la Loge, 66000",
   )
 marty_place.save!
+marty_place2 = Space.new(
+  city: "Angers",
+  user_id: 5,
+  address: "Place de la Belle pioche, 66000",
+  )
+marty_place2.save!
 puts "#{marty.first_name} (#{marty.email}) - City: #{marty_place.city.capitalize} - Address: #{marty_place.address}"
 puts ' '
 # 2- CREATE 4 FAKE RESERVATIONS
