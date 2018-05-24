@@ -8,17 +8,18 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= form_tag(spaces_path, method: "get") do %>
-    <%= text_field_tag(:city) %>
-    <%= submit_tag("Search") %>
-  <% end %>
+    <% unless current_page?(root_path) %>
+      <%= form_tag(spaces_path, method: "get") do %>
+        <%= text_field_tag(:city) %>
+        <%= submit_tag("Search", class: 'btn btn-primary') %>
+      <% end %>
+    <% end %>
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to 'Créer un espace', new_space_path, class: "navbar-wagon-item navbar-wagon-link"%>
       <%= link_to "Mes réservations", reservations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Edit your profile", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -31,8 +32,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Edit profile") %>
               <% end %>
             </li>
             <li>
@@ -55,7 +56,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="../reservations">Mes réservations</a></li>
-        <li><a href=../users/edit>Edit your profile</a></li>
+        <li><a href=../users/edit>Editer mon profil</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
     </div>
