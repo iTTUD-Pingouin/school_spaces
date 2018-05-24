@@ -11,9 +11,11 @@
       <div class="col-xs-12 col-sm-4">
         <div class="book-container">
           <div class="book-form text-center">
-            <h3>Réserver cet espace</h3>
-            <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
-            <%= link_to 'Back to index', spaces_path, class: "btn btn-default" %>
+            <div class="to-top-30">
+              <h3>Réserver cet espace</h3>
+            </div>
+
+            <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info btn-lg" %>
           </div>
         </div>
       </div>

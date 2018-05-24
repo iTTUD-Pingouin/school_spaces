@@ -13,6 +13,14 @@ class Space < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch
+  pg_search_scope :global_search,
+    against: [:title, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
 
   def downcase_title

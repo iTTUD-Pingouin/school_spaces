@@ -3,18 +3,20 @@ class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
 
   def index
-      @spaces = policy_scope(Space)
-      @spaces = policy_scope(Space).near(params[:address]) if params[:address]
-      @spaces = Space.all if params[:title].blank?
+    @spaces = policy_scope(Space)
 
-      @spaces_with_latlong =  Space.where.not(latitude: nil, longitude: nil)
-      @markers = @spaces_with_latlong.map do |space|
-            {
-              lat: space.latitude,
-              lng: space.longitude#,
-              # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-            }
-          end
+    @spaces = policy_scope(Space).near(params[:address]) if params[:address]
+    @spaces = Space.all if params[:address].blank?
+
+
+    @spaces_with_latlong =  Space.where.not(latitude: nil, longitude: nil)
+    @markers = @spaces_with_latlong.map do |space|
+          {
+            lat: space.latitude,
+            lng: space.longitude#,
+            # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+          }
+        end
   end
 
 
