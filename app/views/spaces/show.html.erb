@@ -1,30 +1,117 @@
-<div class="container">
 
-  <h1>L'espace de
-    <% if @space.user.first_name %>
-      <%= @space.user.first_name.capitalize %>
-    <% else %>
-      <%= @space.user.email %>
-    <% end %>
-  </h1>
-  <h5>
-    <% if policy(@space).edit?%>
-      <%= link_to edit_space_path do %>
-        Edit <i class="fas fa-edit"></i>
-      <% end %>
-    <% end %>
-    <% if policy(@space).destroy?%>
-      <%= link_to space_path, method: :delete, data: {confirm: "Vous êtes sûr de vouloir supprimer cet espace ?"} do %>
-        Delete <i class="fas fa-trash-alt"></i>
-      <% end %>
-    <% end %>
-  </h5>
-  <p><%= "This space is located at #{@space.address} in #{@space.city.capitalize}" %></p>
 
-  <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
-  <%= link_to 'Back to index', spaces_path, class: "btn btn-default" %>
-
+<div class="show-first-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="photo-container">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="book-container">
+          <div class="book-form text-center">
+            <h3>Réserver cet espace</h3>
+            <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info"  %>
+            <%= link_to 'Back to index', spaces_path, class: "btn btn-default" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="text-infos-space">
+      <div class="col-xs-12 col-sm-6">
+        <div class="title-of-show-page">
+          <h1>L'espace de
+          <% if @space.user.first_name %>
+            <%= @space.user.first_name.capitalize %>
+          <% else %>
+            <%= @space.user.email %>
+          <% end %>
+          </h1>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <div class="list-of-specs1">
+          <ul class="list-unstyled">
+            <li>
+              <i class="fas fa-wifi"></i>
+              Wifi
+            </li>
+            <li>
+              <i class="fas fa-map-marker"></i>
+              <%= @space.city.capitalize %>
+            </li>
+            <li>
+              <i class="fas fa-users"></i>
+              30 personnes
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <div class="list-of-specs2">
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-cubes"></i>
+                   Salle de classe
+              </li>
+              <li>
+                <i class="fas fa-burn"></i>
+                Salle chauffée
+              </li>
+              <li>
+                <i class="fab fa-apple"></i>
+                Equipements Apple
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="other-infos">
+    <h5>
+      <% if policy(@space).edit?%>
+        <%= link_to edit_space_path do %>
+          Edit <i class="fas fa-edit"></i>
+        <% end %>
+      <% end %>
+      <% if policy(@space).destroy?%>
+        <%= link_to space_path, method: :delete, data: {confirm: "Vous êtes sûr de vouloir supprimer cet espace ?"} do %>
+          Delete <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </h5>
+    <br>
+    <p><strong>Description : </strong><%= "This space is located at #{@space.address} in #{@space.city.capitalize}" %>. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins. Véritable havre de paix situé à Labenne, la Villa Amani est 1 maison d'archi lumineuse & confortable. Vous apprécierez ses équipements de qualité & sa déco immaculée. Piscine & plancha sur terrasse de 100m² avec vue plongeante dans la forêt de pins.</p>
+    <br>
+    <p><strong>Adresse : </strong><%= @space.address%></p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
