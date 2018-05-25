@@ -2,8 +2,10 @@
   <h1>Update your space</h1>
 
   <%= simple_form_for(@space) do |f| %>
-      <%= f.input :city %>
+      <%= f.input :title %>
       <%= f.input :address %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit class: "btn btn-success"%>
   <% end %>
 

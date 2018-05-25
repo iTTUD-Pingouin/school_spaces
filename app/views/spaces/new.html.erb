@@ -5,7 +5,7 @@
       <h1>Ajouter la salle que vous souhaitez louer</h1>
 
       <%= simple_form_for(@space) do |f| %>
-        <%= f.input :city, label: 'Ville' %>
+        <%= f.input :title, label: "Titre de l'annonce" %>
         <%= f.input :address, label: 'Adresse', input_html: { id: 'space_address' } %>
         <%= f.input :photo, as: :file %>
         <%= f.input :photo_cache, as: :hidden %>

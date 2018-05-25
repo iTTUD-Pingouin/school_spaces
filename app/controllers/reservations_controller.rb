@@ -20,8 +20,17 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @reservation.user = current_user
     @reservation.space = @space
+    @reservation.start_date = params[:reservation]["start_date"]
+    @reservation.end_date = params[:reservation]["end_date"]
     authorize @reservation
     @reservation.save
+    redirect_to reservations_path
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.destroy
     redirect_to reservations_path
   end
 
@@ -30,5 +39,9 @@ class ReservationsController < ApplicationController
   def set_space_reservation
     @space = Space.find(params[:space_id])
     authorize @space
+  end
+
+  def set_params
+
   end
 end
