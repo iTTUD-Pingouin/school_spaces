@@ -1,14 +1,10 @@
 import "bootstrap";
-
-
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/themes/material_blue.css'
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
-
-flatpickr("#range_start", {
+flatpickr("#reservation_start_date", {
+  plugins: [new rangePlugin({ input: "#reservation_end_date"})]
   dateFormat: "d-m-Y"
-
-  plugins: [new rangePlugin({ input: "#range_end"})]
 })
 
