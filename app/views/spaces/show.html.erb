@@ -14,11 +14,14 @@
             <div class="to-top-30">
               <h3>Réserver cet espace</h3>
             </div>
-
-            <%= link_to 'Book this place !', new_space_reservation_path(@space), class: "btn btn-info btn-lg" %>
+              <%= simple_form_for([@space, @reservation]) do |f| %>
+                  <%= f.input :start_date, label: "Du ...", as: :string, input_html: {class: "datepicker"}, placeholder: '11/06/2018' %>
+                  <%= f.input :end_date, label: "Au ...", as: :string, input_html: {class: "datepicker"}, placeholder: '15/06/2018' %>
+                  <%= f.submit "Loue cet espace", :class => "btn btn-warning btn-lg" %>
+              <% end %>
           </div>
         </div>
-      </div>
+      </div
     </div>
   </div>
 </div>

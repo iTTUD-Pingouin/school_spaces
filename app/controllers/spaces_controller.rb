@@ -8,8 +8,6 @@ class SpacesController < ApplicationController
     @spaces = policy_scope(Space).near(params[:address]) if params[:address]
     @spaces = Space.all if params[:address].blank?
 
-
-
     @spaces_with_latlong =  Space.where.not(latitude: nil, longitude: nil)
     @markers = @spaces_with_latlong.map do |space|
           {
@@ -20,9 +18,9 @@ class SpacesController < ApplicationController
         end
   end
 
-
   def show
     @review = Review.new
+    @reservation = Reservation.new
   end
 
   def new
