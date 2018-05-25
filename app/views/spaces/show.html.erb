@@ -96,15 +96,24 @@
 </div>
 
 
+<div class="container">
+  <h2><%= pluralize @space.reviews.size, "review" %></h2>
 
+  <div id="reviews">
+    <% if @space.reviews.blank? %>
+      Be the first to leave a review for <%= @space.title %>
+    <% else %>
+      <% @space.reviews.each do |review| %>
+        <%= render 'reviews/show', review: review %>
+      <% end %>
+    <% end %>
+  </div>
 
-
-
-
-
-
-
-
+  <%= simple_form_for([@space, @review] , remote: true) do |form| %>
+    <%= form.input :content, as: :text %>
+    <%= form.button :submit %>
+  <% end %>
+</div>
 
 
 

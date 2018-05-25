@@ -1,0 +1,8 @@
+
+function newReview() {
+  const reviews = document.getElementById('reviews');
+  reviews.insertAdjacentHTML('beforeend', "<p><%= @review.content%></p>");
+}
+
+
+newReview()
