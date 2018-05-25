@@ -1,41 +1,47 @@
-<div class="container">
-  <h1>
-    <% if @user.first_name == nil %>
-      <%="Bienvenue #{@user.email}"%>
-    <% else %>
-      <%="Bienvenue #{@user.first_name}"%>
-    <% end %>
-  </h1>
+<div class="main container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-md-4 container shadowed-radius-box to-bottom-30 text-center profile">
+      <%= image_tag 'photouser.png', class: "img-circle" %>
+      <h4>
+        <% if @user.first_name == nil %>
+          <%="Bienvenue #{@user.email}"%>
+        <% else %>
+          <%="Bienvenue #{@user.first_name}"%>
+        <% end %>
+      </h4>
+      <p><strong>Addresse</strong> : 303 rue du Faubourg Saint-Antoine</p>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <h2>
+        <% if @user.reservations.count == 0 %>
+          <%="Pas (encore) de salles de classes réservées"%>
+        <% else %>
+          <%="Salles de classe réservées"%>
+        <% end %>
+      </h2>
+      <ul class="list-group">
+        <% @user.reservations.each do |reservation| %>
+          <li class="list-group-item">
+            Réservation <strong><%= link_to reservation.space.title.capitalize, reservation_path(reservation) %></strong> | Du <%= reservation.start_date %> au <%= reservation.end_date %> | Réservation : 000<%= reservation.id %> - <%= link_to 'Voir plus de détails', reservation_path(reservation) %>
+          </li>
+        <% end %>
+      </ul>
+      <h2>
+        <% if @user.spaces.count == 0 %>
+          <%="Pas (encore) de salles de classes louées"%>
+        <% else %>
+          <%="Salles de classe mises en location"%>
+        <% end %>
+      </h2>
+      <ul class="list-group">
+        <% @user.spaces.each do |space|  %>
+          <li class="list-group-item">
+            Louée à <strong><%= link_to space.title.capitalize,space_path(space) %></strong> | Espace : 000<%= space.id %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="container">
-  <h2>
-    <% if @user.reservations.count == 0 %>
-      <%="Pas (encore) de salles de classes réservées"%>
-    <% else %>
-      <%="Salles de classe réservées"%>
-    <% end %>
-  </h2>
-  <ul class="list-group">
-    <% @user.reservations.each do |reservation| %>
-      <li class="list-group-item">
-        Réservation <strong><%= link_to reservation.space.title.capitalize, reservation_path(reservation) %></strong> | Du <%= reservation.start_date %> au <%= reservation.end_date %> | Réservation : 000<%= reservation.id %> - <%= link_to 'Voir plus de détails', reservation_path(reservation) %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div class="container">
-  <h2>
-    <% if @user.spaces.count == 0 %>
-      <%="Pas (encore) de salles de classes louées"%>
-    <% else %>
-      <%="Salles de classe mises en location"%>
-    <% end %>
-  </h2>
-  <ul class="list-group">
-    <% @user.spaces.each do |space|  %>
-      <li class="list-group-item">
-        Louée à <strong><%= link_to space.title.capitalize,space_path(space) %></strong> | Espace : 000<%= space.id %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+
+
