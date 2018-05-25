@@ -3,13 +3,16 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     resources :reservations, only: [:index]
+    get 'profile', to: 'users#profile', as: :profile
   end
 
   resources :spaces do
     resources :reservations, only: [:new,  :create ]
   end
 
-  resources :reservations, only: [:show]
+  resources :reservations, only: [:show, :destroy]
+
+
 
 
   # get 'reservations/:id', to: 'reservations#show', as: :reservation_id

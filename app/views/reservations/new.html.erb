@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>You really want to book Here ? </h1>
+  <h1>A quelles dates voudriez-vous louer cet espace ? </h1>
     <div class="row">
       <div class="col-xs-12 col-sm-12">
         <%= simple_form_for [@space, @reservation] do |f| %>
-          <%= f.submit %>
+          <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
+          <%= f.submit "Loue cet espace" , :class => "btn btn-warning btn-lg" %>
         <% end %>
       </div>
   </div>

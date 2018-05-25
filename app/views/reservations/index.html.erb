@@ -18,7 +18,7 @@
   <ul class="list-group">
     <% @user.reservations.each do |reservation| %>
       <li class="list-group-item">
-        Réservation à <strong><%= link_to reservation.space.city.capitalize, reservation_path(reservation) %></strong> | Réservation : 000<%= reservation.id %>
+        Réservation <strong><%= link_to reservation.space.title.capitalize, reservation_path(reservation) %></strong> | Du <%= reservation.start_date %> au <%= reservation.end_date %> | Réservation : 000<%= reservation.id %> - <%= link_to 'Voir plus de détails', reservation_path(reservation) %>
       </li>
     <% end %>
   </ul>
@@ -28,13 +28,13 @@
     <% if @user.spaces.count == 0 %>
       <%="Pas (encore) de salles de classes louées"%>
     <% else %>
-      <%="Salles de classe louées"%>
+      <%="Salles de classe mises en location"%>
     <% end %>
   </h2>
   <ul class="list-group">
     <% @user.spaces.each do |space|  %>
       <li class="list-group-item">
-        Louée à <strong><%= link_to space.city.capitalize,space_path(space) %></strong> | Espace : 000<%= space.id %>
+        Louée à <strong><%= link_to space.title.capitalize,space_path(space) %></strong> | Espace : 000<%= space.id %>
       </li>
     <% end %>
   </ul>

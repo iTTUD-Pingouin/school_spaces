@@ -10,7 +10,9 @@
 
     <% unless current_page?(root_path) %>
       <%= form_tag(spaces_path, method: "get") do %>
-        <%= text_field_tag(:city) %>
+        <%= date_field_tag(:start_date, params[:start_date], placeholder: '11/06/2018', class: 'datepicker') %>
+        <%= date_field_tag(:end_date, params[:end_date], placeholder: '15/06/2018', class: 'datepicker') %>
+        <%= text_field_tag(:address, params[:address], placeholder: 'Paris, Marseille ...', class: "large-input")%>
         <%= submit_tag("Search", class: 'btn btn-primary') %>
       <% end %>
     <% end %>
@@ -27,7 +29,7 @@
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
