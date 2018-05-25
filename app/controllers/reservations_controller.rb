@@ -17,14 +17,12 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new
+    @reservation = Reservation.new(set_params)
     @reservation.user = current_user
     @reservation.space = @space
-    @reservation.start_date = params[:reservation]["start_date"]
-    @reservation.end_date = params[:reservation]["end_date"]
     authorize @reservation
     @reservation.save
-    redirect_to reservations_path
+    redirect_to reservation_path(@reservation)
   end
 
   def destroy
@@ -42,6 +40,6 @@ class ReservationsController < ApplicationController
   end
 
   def set_params
-
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 end

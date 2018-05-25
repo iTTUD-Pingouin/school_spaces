@@ -1,0 +1,21 @@
+
+.profile{
+  height: calc(100vh - 70px - 60px - 94.5px);
+}
+
+@media(max-width: 950px) {
+  .profile {
+    height: 400px;
+  }
+}
+
+.img-circle{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.main{
+  display: flex;
+  float: none;
+}
+

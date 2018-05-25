@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
     @spaces = Space.all if params[:address].blank?
 
 
+
     @spaces_with_latlong =  Space.where.not(latitude: nil, longitude: nil)
     @markers = @spaces_with_latlong.map do |space|
           {
