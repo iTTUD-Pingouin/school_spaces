@@ -1,17 +1,44 @@
-<div class="container">
-  <h1>Here you can see the reservation's details</h1>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12">
-        <p><%= "This reservation is located in #{@reservation.space.title}" %></p>
-        <p><%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
-        <p><%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
-        </p>
-        <%= link_to space_path(@reservation.space) do %>
+<div id="center-title">
+  <h2> Your <strong>reservation</strong> details</h2>
+</div>
+<div class="show-container">
+  <div class="box-show">
+    <div class="box-text">
+      <p>
+        <%= "This reservation was made for #{@reservation.space.title}" %>
+      </p>
+      <p>
+        <%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
+      </p>
+      <p>
+        <%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
+      </p>
+      <p>
+        <%= link_to 'See the booking', space_path(@reservation.space) %>
+      </p>
+    </div>
+  </div>
+  <div class="box-show">
+    <div class="box-text">
+      <p>
+        <%= "This reservation was made for #{@reservation.space.title}" %>
+      </p>
+      <p>
+        <%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
+      </p>
+      <p>
+        <%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
+      </p>
+      <p>
+        <%= link_to 'See the booking', space_path(@reservation.space) %>
+      </p>
+      <%= link_to space_path(@reservation.space) do %>
           <h3 style="color: black"><i class="far fa-eye"></i> See the place booked</h3>
         <% end %>
         <%= link_to reservation_path(@reservation), method: :delete do %>
           <h3 style="color: black"><i class="fas fa-ban"></i> Cancel this reservation</h3 style="color: black">
         <% end %>
-      </div>
+    </div>
   </div>
 </div>
+
