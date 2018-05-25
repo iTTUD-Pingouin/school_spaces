@@ -20,8 +20,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @reservation.user = current_user
     @reservation.space = @space
-    @reservation.start_date = params[:reservation]["start_date"]
-    @reservation.end_date = params[:reservation]["end_date"]
+    dates = params[:reservation][:start_date].split(" to ")
+    start_date = DateTime.parse(dates.first)
+    end_date = DateTime.parse(dates.last)
+    @reservation.start_date = start_date
+    @reservation.end_date = end_date
     authorize @reservation
     @reservation.save
     redirect_to reservation_path(@reservation)

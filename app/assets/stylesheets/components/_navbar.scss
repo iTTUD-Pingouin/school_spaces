@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .form-control {
+    display: inline;
+    width: auto;
+  }
 }
 
 /* Logo */
@@ -80,3 +84,5 @@
 .large-input {
   width: 250px;
 }
+
+
