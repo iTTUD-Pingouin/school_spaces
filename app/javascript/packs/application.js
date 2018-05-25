@@ -6,5 +6,5 @@ import 'flatpickr/dist/flatpickr.min.css'
 
 
 flatpickr(".datepicker", {
-
+  dateFormat: "d-m-Y"
 });
