@@ -1,44 +1,52 @@
 <div id="center-title">
   <h2> Your <strong>reservation</strong> details</h2>
 </div>
+
 <div class="show-container">
   <div class="box-show">
     <div class="box-text">
-      <p>
-        <%= "This reservation was made for #{@reservation.space.title}" %>
-      </p>
-      <p>
-        <%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
-      </p>
-      <p>
-        <%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
-      </p>
-      <p>
-        <%= link_to 'See the booking', space_path(@reservation.space) %>
-      </p>
+      <h2>Contact</h2>
+      <div class="box-title">
+        <p>
+          <%= "This reservation was made for #{@reservation.space.title}" %>
+        </p>
+        <p>
+          <%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
+        </p>
+        <p>
+          <%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
+        </p>
+          <%= link_to space_path(@reservation.space) do %>
+            <h3 style="color: black; font-size: 14px"><i class="far fa-eye"></i> See the place booked</h3>
+          <% end %>
+          <%= link_to reservation_path(@reservation), method: :delete do %>
+            <h3 style="color: black; font-size: 14px"><i class="fas fa-ban"></i> Cancel this reservation</h3 style="color: black">
+          <% end %>
+      </div>
     </div>
   </div>
   <div class="box-show">
     <div class="box-text">
-      <p>
-        <%= "This reservation was made for #{@reservation.space.title}" %>
-      </p>
-      <p>
-        <%= "It is leased by #{@reservation.space.user.first_name}, you can join him on #{@reservation.space.user.email}" %>
-      </p>
-      <p>
-        <%= "It is rented by #{@reservation.user.first_name}, you can join him on #{@reservation.user.email}" %>
-      </p>
-      <p>
-        <%= link_to 'See the booking', space_path(@reservation.space) %>
-      </p>
-      <%= link_to space_path(@reservation.space) do %>
-          <h3 style="color: black"><i class="far fa-eye"></i> See the place booked</h3>
-        <% end %>
-        <%= link_to reservation_path(@reservation), method: :delete do %>
-          <h3 style="color: black"><i class="fas fa-ban"></i> Cancel this reservation</h3 style="color: black">
-        <% end %>
+      <h2>Dates</h2>
+      <div class="box-title">
+          <p>Start</p>
+            <div class="date-big" style="font-size: 28px; font-weight: bolder">
+               <%= @reservation.start_date.day %>/<%= @reservation.start_date.month %>/<%= @reservation.start_date.year %>
+            </div>
+          <p></p>
+          <p>End</p>
+            <div class="date-big" style="font-size: 28px; font-weight: bolder">
+               <%= @reservation.end_date.day %>/<%= @reservation.end_date.month %>/<%= @reservation.end_date.year %>
+            </div>
+    <div>
+  </div>
+ <!--  <div class="box-show">
+    <div class="box-text">
+      <h2>Start</h2>
+      <div class="box-title">
+        <p>bblfebflbfvldfbldsfblsfbflsfblsdbfls</p>
+      </div>
     </div>
   </div>
-</div>
 
+ -->
