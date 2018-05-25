@@ -21,6 +21,7 @@ class SpacesController < ApplicationController
 
 
   def show
+    @review = Review.new
   end
 
   def new
